@@ -26,16 +26,18 @@ class Mage(Character):
         super().__init__(name, health, attack_power)
         self.attack_power += 20
 
-# def start_battle(hero1: Warrior, hero2: Mage):
-#     while hero1.is_alive() and hero2.is_alive():
-#         hero1.attack
-#         if hero2.is_alive():
-#             hero2.attack
-#     print(f'{hero1' )
-
+def start_battle(hero1: Warrior, hero2: Mage):
+    print(f"--- THE BATTLE BEGINS! {hero1.name} VS {hero2.name} ---")
+    while hero1.is_alive() and hero2.is_alive():
+        hero1.attack(hero2)
+        if hero2.is_alive():
+            hero2.attack(hero1)
+    if hero1.is_alive():
+        print(f'{hero1.name} wins!')
+    else:
+        print(f'{hero2.name} wins!')
 
 war = Warrior("Kop",100,40)
 mage = Mage("Zin", 100, 30)
 
-print(mage.attack(war))
-print(f"Здоровье Воина: {war.health}")
+start_battle(war, mage)
