@@ -1,5 +1,4 @@
 import random
-
 class Character:
     def __init__(self, name, health, attack_power):
         self.name = name
